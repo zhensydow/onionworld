@@ -11,8 +11,8 @@
 #include <GL/gl.h>
 
 //------------------------------------------------------------------------------
-GLuint CreateShader( GLenum shaderType, const std::string &filename );
-GLuint CreateProgram( const std::vector<GLuint> &shaders );
+GLuint createShader( GLenum shaderType, const std::string &filename );
+GLuint createProgram( const std::vector<GLuint> &shaders );
 
 //------------------------------------------------------------------------------
 #endif//SHADERS_H

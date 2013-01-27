@@ -39,10 +39,10 @@ void initializeVertexBuffer(){
 void initializeProgram(){
   std::vector<GLuint> shaders;
 
-  shaders.push_back( CreateShader( GL_VERTEX_SHADER, strVertexShader ) );
-  shaders.push_back( CreateShader( GL_FRAGMENT_SHADER, strFragmentShader ) );
+  shaders.push_back( createShader( GL_VERTEX_SHADER, strVertexShader ) );
+  shaders.push_back( createShader( GL_FRAGMENT_SHADER, strFragmentShader ) );
 
-  myProgram = CreateProgram( shaders );
+  myProgram = createProgram( shaders );
 
   std::for_each( shaders.begin(), shaders.end(), glDeleteShader );
 }
