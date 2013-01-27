@@ -1,12 +1,17 @@
 //------------------------------------------------------------------------------
 #include <cstdlib>
 
+#include <vector>
+#include <algorithm>
+
 #define GL_GLEXT_PROTOTYPES 1
 #define GL3_PROTOTYPES 1
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glext.h>
 #include <GL/glut.h>
+
+#include "shaders.h"
 
 //------------------------------------------------------------------------------
 const float vertexPositions[] = {
@@ -18,6 +23,9 @@ const float vertexPositions[] = {
 GLuint positionBufferObject = 0;
 GLuint myProgram = 0;
 
+std::string strVertexShader = "ex01.vert";
+std::string strFragmentShader = "ex01.frag";
+
 //------------------------------------------------------------------------------
 void initializeVertexBuffer(){
   glGenBuffers( 1, &positionBufferObject );
@@ -26,6 +34,17 @@ void initializeVertexBuffer(){
   glBufferData( GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions,
 		GL_STATIC_DRAW );
   glBindBuffer( GL_ARRAY_BUFFER, 0 );
+}
+
+void initializeProgram(){
+  std::vector<GLuint> shaders;
+
+  shaders.push_back( CreateShader( GL_VERTEX_SHADER, strVertexShader ) );
+  shaders.push_back( CreateShader( GL_FRAGMENT_SHADER, strFragmentShader ) );
+
+  myProgram = CreateProgram( shaders );
+
+  std::for_each( shaders.begin(), shaders.end(), glDeleteShader );
 }
 
 //------------------------------------------------------------------------------
@@ -47,7 +66,7 @@ void renderScene(void) {
 }
 
 void reshape( int w, int h ){
-    glViewport( 0, 0, (GLsizei)w, (GLsizei)h );
+  glViewport( 0, 0, (GLsizei)w, (GLsizei)h );
 }
 
 //------------------------------------------------------------------------------
@@ -58,6 +77,7 @@ int main(int argc, char **argv ){
   glutInitWindowSize( 320, 320 );
   glutCreateWindow( "Onion World" );
 
+  initializeProgram();
   initializeVertexBuffer();
 
   // register callbacks
