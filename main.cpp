@@ -32,7 +32,26 @@ const float vertexPositions[] = {
   -0.15f, -0.75f, 0.0f, 1.0f,
 };
 
-GLuint positionBufferObject = 0;
+const float vertexColors[] = {
+  1.0f, 0.0f, 0.0f, 1.0f,
+  0.0f, 1.0f, 0.0f, 1.0f,
+  0.0f, 0.0f, 1.0f, 1.0f,
+
+  1.0f, 1.0f, 0.0f, 1.0f,
+  1.0f, 1.0f, 0.0f, 1.0f,
+  1.0f, 1.0f, 0.0f, 1.0f,
+
+  1.0f, 1.0f, 0.0f, 1.0f,
+  1.0f, 1.0f, 0.0f, 1.0f,
+  1.0f, 1.0f, 0.0f, 1.0f,
+
+  1.0f, 0.0f, 0.0f, 1.0f,
+  0.0f, 1.0f, 0.0f, 1.0f,
+  0.0f, 0.0f, 1.0f, 1.0f,
+};
+
+GLuint posBufferObject = 0;
+GLuint colBufferObject = 0;
 GLuint myProgram = 0;
 
 std::string strVertexShader = "ex01.vert";
@@ -40,10 +59,17 @@ std::string strFragmentShader = "ex01.frag";
 
 //------------------------------------------------------------------------------
 void initializeVertexBuffer(){
-  glGenBuffers( 1, &positionBufferObject );
+  glGenBuffers( 1, &posBufferObject );
 
-  glBindBuffer( GL_ARRAY_BUFFER, positionBufferObject );
+  glBindBuffer( GL_ARRAY_BUFFER, posBufferObject );
   glBufferData( GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions,
+		GL_STATIC_DRAW );
+  glBindBuffer( GL_ARRAY_BUFFER, 0 );
+
+  glGenBuffers( 1, &colBufferObject );
+
+  glBindBuffer( GL_ARRAY_BUFFER, colBufferObject );
+  glBufferData( GL_ARRAY_BUFFER, sizeof(vertexColors), vertexColors,
 		GL_STATIC_DRAW );
   glBindBuffer( GL_ARRAY_BUFFER, 0 );
 }
@@ -65,9 +91,14 @@ void renderScene(void) {
   glClear( GL_COLOR_BUFFER_BIT );
 
   glUseProgram( myProgram );
-  glBindBuffer( GL_ARRAY_BUFFER, positionBufferObject );
-  glEnableVertexAttribArray( 0 );
+  glBindBuffer( GL_ARRAY_BUFFER, posBufferObject );
   glVertexAttribPointer( 0, 4, GL_FLOAT, GL_FALSE, 0, 0 );
+
+  glBindBuffer( GL_ARRAY_BUFFER, colBufferObject );
+  glVertexAttribPointer( 1, 4, GL_FLOAT, GL_FALSE, 0, 0 );
+
+  glEnableVertexAttribArray( 0 );
+  glEnableVertexAttribArray( 1 );
 
   glDrawArrays( GL_TRIANGLES, 0, 12 );
 
