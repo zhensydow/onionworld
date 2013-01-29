@@ -2,16 +2,15 @@
 all: onionworld
 
 GLCFLAGS=$(shell pkg-config --cflags gl)
-CFLAGS=-std=c++11 -Wall -O2 ${GLCFLAGS}
+
+CPPFLAGS=-Wall -O2 ${GLCFLAGS}
+CXXFLAGS=-std=c++11
 
 GLLIBS=$(shell pkg-config --libs gl)
 LIBS=${GLLIBS} -lglut -lstdc++
 
 onionworld: main.o shaders.o fileutils.o
-	gcc $^ ${LIBS} -o onionworld
-
-%.o: %.cpp
-	gcc ${CFLAGS} -c $<
+	${CXX} $^ ${LIBS} -o onionworld
 
 clean:
 	rm -f *.o onionworld
