@@ -63,22 +63,28 @@ void initializeVertexBuffer(){
 
   glBindBuffer( GL_ARRAY_BUFFER, posBufferObject );
   glBufferData( GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions,
-		GL_STATIC_DRAW );
+        GL_STATIC_DRAW );
   glBindBuffer( GL_ARRAY_BUFFER, 0 );
 
   glGenBuffers( 1, &colBufferObject );
 
   glBindBuffer( GL_ARRAY_BUFFER, colBufferObject );
   glBufferData( GL_ARRAY_BUFFER, sizeof(vertexColors), vertexColors,
-		GL_STATIC_DRAW );
+        GL_STATIC_DRAW );
   glBindBuffer( GL_ARRAY_BUFFER, 0 );
 }
 
 void initializeProgram(){
   std::vector<GLuint> shaders;
 
-  shaders.push_back( createShader( GL_VERTEX_SHADER, strVertexShader ) );
-  shaders.push_back( createShader( GL_FRAGMENT_SHADER, strFragmentShader ) );
+  std::string sv(reinterpret_cast<const char*>(glGetString( GL_SHADING_LANGUAGE_VERSION )));
+  if( sv != "1.20" and sv != "3.30" ){
+      printf( "Invalid shader version: %s\n", sv.c_str() );
+      exit(EXIT_FAILURE);
+  }
+
+  shaders.push_back( createShader( GL_VERTEX_SHADER, sv + "/" + strVertexShader ) );
+  shaders.push_back( createShader( GL_FRAGMENT_SHADER, sv + "/" + strFragmentShader ) );
 
   myProgram = createProgram( shaders );
 
