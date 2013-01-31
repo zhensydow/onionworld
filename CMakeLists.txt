@@ -24,6 +24,5 @@ find_package(GLUT)
 SET(LIBRARIES ${LIBRARIES} ${OPENGL_LIBRARY})
 SET(LIBRARIES ${LIBRARIES} ${GLUT_LIBRARY})
 
-add_executable(onionworld main.cpp fileutils.cpp shaders.cpp)
-
-TARGET_LINK_LIBRARIES(onionworld ${LIBRARIES})
+add_subdirectory(common)
+add_subdirectory(game)
