@@ -15,14 +15,19 @@ else()
 #  message("compiler detected as: non-GNU compiler")
 endif()
 
-SET(CMAKE_CPP_FLAGS "-Wall" )
+set(CMAKE_CPP_FLAGS "-Wall" )
+
+set(DATADIR "${PROJECT_BINARY_DIR}")
+
+configure_file ("${PROJECT_SOURCE_DIR}/config.h.in"
+                "${PROJECT_BINARY_DIR}/config.h" )
 
 # OpenGL
 find_package(OpenGL REQUIRED)
 find_package(GLUT)
 
-SET(LIBRARIES ${LIBRARIES} ${OPENGL_LIBRARY})
-SET(LIBRARIES ${LIBRARIES} ${GLUT_LIBRARY})
+set(LIBRARIES ${LIBRARIES} ${OPENGL_LIBRARY})
+set(LIBRARIES ${LIBRARIES} ${GLUT_LIBRARY})
 
 add_subdirectory(common)
 add_subdirectory(game)
