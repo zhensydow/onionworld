@@ -26,8 +26,6 @@ configure_file ("${PROJECT_SOURCE_DIR}/config.h.in"
 find_package(OpenGL REQUIRED)
 find_package(GLUT)
 
-set(LIBRARIES ${LIBRARIES} ${OPENGL_LIBRARY})
-set(LIBRARIES ${LIBRARIES} ${GLUT_LIBRARY})
-
 add_subdirectory(common)
+add_subdirectory(render)
 add_subdirectory(game)
