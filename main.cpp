@@ -109,6 +109,7 @@ void renderScene(void) {
   glDrawArrays( GL_TRIANGLES, 0, 12 );
 
   glDisableVertexAttribArray( 0 );
+  glDisableVertexAttribArray( 1 );
   glUseProgram( 0 );
 
   glutSwapBuffers();
