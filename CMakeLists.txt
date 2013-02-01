@@ -35,4 +35,6 @@ add_subdirectory(common)
 add_subdirectory(render)
 add_subdirectory(game)
 
-install(DIRECTORY data DESTINATION ${DATADIR})
+file(GLOB DATA_DIRS "data/*")
+
+install(DIRECTORY ${DATA_DIRS} DESTINATION ${DATADIR})
