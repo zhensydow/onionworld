@@ -15,7 +15,7 @@ else()
 #  message("compiler detected as: non-GNU compiler")
 endif()
 
-set(CMAKE_CPP_FLAGS "-Wall" )
+set(CMAKE_CPP_FLAGS "-Wall -pedantic" )
 
 set(DATADIR "${PROJECT_BINARY_DIR}")
 
