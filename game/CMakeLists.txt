@@ -10,3 +10,5 @@ target_link_libraries(onionworld ${LIBRARIES})
 target_link_libraries(onionworld ${OPENGL_LIBRARY})
 target_link_libraries(onionworld ${GLUT_LIBRARY})
 target_link_libraries(onionworld ${Boost_LIBRARIES})
+
+install(TARGETS onionworld RUNTIME DESTINATION bin)

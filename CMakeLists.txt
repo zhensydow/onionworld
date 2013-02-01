@@ -17,7 +17,7 @@ endif()
 
 set(CMAKE_CPP_FLAGS "-Wall -pedantic" )
 
-set(DATADIR "${PROJECT_BINARY_DIR}")
+set(DATADIR "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}")
 
 set(Boost_USE_STATIC_LIBS        ON)
 find_package( Boost 1.36.0 COMPONENTS regex)
@@ -34,3 +34,5 @@ find_package(GLUT)
 add_subdirectory(common)
 add_subdirectory(render)
 add_subdirectory(game)
+
+install(DIRECTORY data DESTINATION ${DATADIR})
