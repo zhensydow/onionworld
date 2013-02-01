@@ -13,6 +13,8 @@
 #include <GL/glext.h>
 #include <GL/glut.h>
 
+#include "config.h"
+
 #include "common/shaders.h"
 #include "render/version.h"
 
@@ -90,7 +92,7 @@ void initializeProgram(){
       exit(EXIT_FAILURE);
   }
 
-  auto path = boost::format("%1%.%2%/") % version.mayor % version.minor;
+  auto path = boost::format("%1%/%2%.%3%/") % DATADIR % version.mayor % version.minor;
   shaders.push_back( createShader( GL_VERTEX_SHADER, path.str() + strVertexShader ) );
   shaders.push_back( createShader( GL_FRAGMENT_SHADER, path.str() + strFragmentShader ) );
 
