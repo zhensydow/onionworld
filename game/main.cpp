@@ -68,14 +68,14 @@ void initializeVertexBuffer(){
 
   glBindBuffer( GL_ARRAY_BUFFER, posBufferObject );
   glBufferData( GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions,
-        GL_STATIC_DRAW );
+		GL_STATIC_DRAW );
   glBindBuffer( GL_ARRAY_BUFFER, 0 );
 
   glGenBuffers( 1, &colBufferObject );
 
   glBindBuffer( GL_ARRAY_BUFFER, colBufferObject );
   glBufferData( GL_ARRAY_BUFFER, sizeof(vertexColors), vertexColors,
-        GL_STATIC_DRAW );
+		GL_STATIC_DRAW );
   glBindBuffer( GL_ARRAY_BUFFER, 0 );
 }
 
@@ -85,14 +85,15 @@ void initializeProgram(){
   std::string sv(reinterpret_cast<const char*>(glGetString( GL_SHADING_LANGUAGE_VERSION )));
   const Render::Version version( sv );
   if( version != Render::Version(1,20) and
-      version != Render::Version(3,30) ){
-      printf( "Invalid shader version: %d.%d\n",
-              version.mayor, version.minor );
+	  version != Render::Version(3,30) ){
+	  printf( "Invalid shader version: %d.%d\n",
+			  version.mayor, version.minor );
 
-      exit(EXIT_FAILURE);
+	  exit(EXIT_FAILURE);
   }
 
-  auto path = boost::format("%1%/%2%.%3%/") % DATADIR % version.mayor % version.minor;
+  auto path = boost::format("%1%/%2%.%3%/")
+	% g_datapath % version.mayor % version.minor;
   shaders.push_back( createShader( GL_VERTEX_SHADER, path.str() + strVertexShader ) );
   shaders.push_back( createShader( GL_FRAGMENT_SHADER, path.str() + strFragmentShader ) );
 
