@@ -19,6 +19,11 @@ set(CMAKE_CPP_FLAGS "-Wall" )
 
 set(DATADIR "${PROJECT_BINARY_DIR}")
 
+set(Boost_USE_STATIC_LIBS        ON)
+find_package( Boost 1.36.0 COMPONENTS regex)
+link_directories ( ${Boost_LIBRARY_DIRS} )
+include_directories ( ${Boost_INCLUDE_DIRS} )
+
 configure_file ("${PROJECT_SOURCE_DIR}/config.h.in"
                 "${PROJECT_BINARY_DIR}/config.h" )
 
