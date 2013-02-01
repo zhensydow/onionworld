@@ -31,10 +31,14 @@ configure_file ("${PROJECT_SOURCE_DIR}/config.h.in"
 find_package(OpenGL REQUIRED)
 find_package(GLUT)
 
+find_package(Qt4 REQUIRED)
+set(QT_USE_QTOPENGL TRUE)
+
 add_subdirectory(common)
 add_subdirectory(render)
 add_subdirectory(game)
+add_subdirectory(editor)
 
+# Data files
 file(GLOB DATA_DIRS "data/*")
-
 install(DIRECTORY ${DATA_DIRS} DESTINATION ${DATADIR})
