@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 
+#include <boost/format.hpp>
+
 #define GL_GLEXT_PROTOTYPES 1
 #define GL3_PROTOTYPES 1
 #include <GL/gl.h>
@@ -11,7 +13,10 @@
 #include <GL/glext.h>
 #include <GL/glut.h>
 
-#include "shaders.h"
+#include "config.h"
+
+#include "common/shaders.h"
+#include "render/version.h"
 
 //------------------------------------------------------------------------------
 const float vertexPositions[] = {
@@ -77,8 +82,20 @@ void initializeVertexBuffer(){
 void initializeProgram(){
   std::vector<GLuint> shaders;
 
-  shaders.push_back( createShader( GL_VERTEX_SHADER, strVertexShader ) );
-  shaders.push_back( createShader( GL_FRAGMENT_SHADER, strFragmentShader ) );
+  std::string sv(reinterpret_cast<const char*>(glGetString( GL_SHADING_LANGUAGE_VERSION )));
+  const Render::Version version( sv );
+  if( version != Render::Version(1,20) and
+	  version != Render::Version(3,30) ){
+	  printf( "Invalid shader version: %d.%d\n",
+			  version.mayor, version.minor );
+
+	  exit(EXIT_FAILURE);
+  }
+
+  auto path = boost::format("%1%/%2%.%3%/")
+	% g_datapath % version.mayor % version.minor;
+  shaders.push_back( createShader( GL_VERTEX_SHADER, path.str() + strVertexShader ) );
+  shaders.push_back( createShader( GL_FRAGMENT_SHADER, path.str() + strFragmentShader ) );
 
   myProgram = createProgram( shaders );
 
@@ -103,6 +120,7 @@ void renderScene(void) {
   glDrawArrays( GL_TRIANGLES, 0, 12 );
 
   glDisableVertexAttribArray( 0 );
+  glDisableVertexAttribArray( 1 );
   glUseProgram( 0 );
 
   glutSwapBuffers();
