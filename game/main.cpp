@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 
+#include <boost/format.hpp>
+
 #define GL_GLEXT_PROTOTYPES 1
 #define GL3_PROTOTYPES 1
 #include <GL/gl.h>
@@ -11,7 +13,8 @@
 #include <GL/glext.h>
 #include <GL/glut.h>
 
-#include "shaders.h"
+#include "common/shaders.h"
+#include "render/version.h"
 
 //------------------------------------------------------------------------------
 const float vertexPositions[] = {
@@ -78,13 +81,18 @@ void initializeProgram(){
   std::vector<GLuint> shaders;
 
   std::string sv(reinterpret_cast<const char*>(glGetString( GL_SHADING_LANGUAGE_VERSION )));
-  if( sv != "1.20" and sv != "3.30" ){
-      printf( "Invalid shader version: %s\n", sv.c_str() );
+  const Render::Version version( sv );
+  if( version != Render::Version(1,20) and
+      version != Render::Version(3,30) ){
+      printf( "Invalid shader version: %d.%d\n",
+              version.mayor, version.minor );
+
       exit(EXIT_FAILURE);
   }
 
-  shaders.push_back( createShader( GL_VERTEX_SHADER, sv + "/" + strVertexShader ) );
-  shaders.push_back( createShader( GL_FRAGMENT_SHADER, sv + "/" + strFragmentShader ) );
+  auto path = boost::format("%1%.%2%/") % version.mayor % version.minor;
+  shaders.push_back( createShader( GL_VERTEX_SHADER, path.str() + strVertexShader ) );
+  shaders.push_back( createShader( GL_FRAGMENT_SHADER, path.str() + strFragmentShader ) );
 
   myProgram = createProgram( shaders );
 
