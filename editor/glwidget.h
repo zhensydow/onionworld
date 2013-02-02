@@ -5,15 +5,22 @@
 //------------------------------------------------------------------------------
 #include <QtOpenGL/QGLWidget>
 
+namespace Render{
+  class Render;
+}
+
 //------------------------------------------------------------------------------
 class GLWidget : public QGLWidget {
- private:
-  Q_OBJECT
-
  public:
   GLWidget(QWidget *parent = NULL);
+  void initializeGL();
+  void resizeGL(int w, int h);
 
  protected:
+
+ private:
+  Q_OBJECT
+	Render::Render * render;
 };
 
 //------------------------------------------------------------------------------
