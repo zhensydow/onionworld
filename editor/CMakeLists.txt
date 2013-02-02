@@ -1,9 +1,14 @@
 file(GLOB OWEDITOR_SOURCES "*.cpp")
 
 include(${QT_USE_FILE})
-message("Libs: ${QT_LIBRARIES}")
 
-add_executable(oweditor ${OWEDITOR_SOURCES})
+set(oweditor_MOC_HDRS
+  glwidget.h
+)
+
+qt4_wrap_cpp(oweditor_MOC_SRCS ${oweditor_MOC_HDRS})
+
+add_executable(oweditor ${OWEDITOR_SOURCES} ${oweditor_MOC_SRCS})
 
 install(TARGETS oweditor RUNTIME DESTINATION bin)
 
