@@ -17,6 +17,7 @@
 
 #include "common/shaders.h"
 #include "render/version.h"
+#include "render/render.h"
 
 //------------------------------------------------------------------------------
 const float vertexPositions[] = {
@@ -61,6 +62,8 @@ GLuint myProgram = 0;
 
 std::string strVertexShader = "ex01.vert";
 std::string strFragmentShader = "ex01.frag";
+
+Render::Render * render = 0;
 
 //------------------------------------------------------------------------------
 void initializeVertexBuffer(){
@@ -126,12 +129,14 @@ void renderScene(void) {
   glutSwapBuffers();
 }
 
-void reshape( int w, int h ){
-  glViewport( 0, 0, (GLsizei)w, (GLsizei)h );
+void resize( int w, int h ){
+  render->resize( w, h );
 }
 
 //------------------------------------------------------------------------------
 int main(int argc, char **argv ){
+  render = Render::Render::instance();
+
   // init GLUT and create Window
   glutInit( &argc, argv );
   glutInitDisplayMode( GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA );
@@ -143,7 +148,7 @@ int main(int argc, char **argv ){
 
   // register callbacks
   glutDisplayFunc( renderScene );
-  glutReshapeFunc( reshape );
+  glutReshapeFunc( resize );
 
   glutMainLoop();
 
