@@ -7,6 +7,7 @@ include(${QT_USE_FILE})
 
 set(oweditor_MOC_HDRS
   ../gui/glwidget.h
+  mainwindow.h
 )
 
 qt4_wrap_cpp(oweditor_MOC_SRCS ${oweditor_MOC_HDRS})

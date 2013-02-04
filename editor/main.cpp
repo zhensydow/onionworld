@@ -3,15 +3,16 @@
 
 #include <QtGui/QApplication>
 
-#include "gui/glwidget.h"
+#include "mainwindow.h"
 
 //------------------------------------------------------------------------------
 int main(int argc, char **argv ){
   QApplication app(argc, argv);
 
-  GLWidget window;
+  MainWindow window;
+  //GLWidget window;
 
-  window.resize( 320, 320 );
+  //window.resize( 320, 320 );
   window.show();
 
   return app.exec();
