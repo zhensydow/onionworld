@@ -1,7 +1,7 @@
 * Testing
 ** Ubuntu/Debian
 
-#+begin_src BASH
+#+BEGIN_EXAMPLE
 apt-get install libboost-all-dev qt4-dev-tools
 
 mkdir build
@@ -9,4 +9,4 @@ cd build
 cmake -DCMAKE_INSTALL_PREFIX=~/bin
 make
 make install
-#+end_src
+#+END_EXAMPLE
