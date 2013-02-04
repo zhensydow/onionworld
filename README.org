@@ -1,7 +1,7 @@
 * Testing
 ** Ubuntu/Debian
 
-apt-get install libboost-all-dev qt4-dev-tools freeglu3-dev
+apt-get install libboost-all-dev qt4-dev-tools
 
 mkdir build
 cd build
