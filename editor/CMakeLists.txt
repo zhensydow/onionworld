@@ -15,5 +15,7 @@ add_executable(oweditor ${OWEDITOR_SOURCES} ${oweditor_MOC_SRCS})
 
 install(TARGETS oweditor RUNTIME DESTINATION bin)
 
-target_link_libraries(oweditor ${QT_LIBRARIES})
 target_link_libraries(oweditor render)
+target_link_libraries(oweditor common)
+target_link_libraries(oweditor ${QT_LIBRARIES})
+target_link_libraries(oweditor ${Boost_LIBRARIES})

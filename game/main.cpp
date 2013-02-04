@@ -15,7 +15,7 @@
 
 #include "config.h"
 
-#include "common/shaders.h"
+#include "render/shaders.h"
 #include "render/version.h"
 #include "render/render.h"
 
