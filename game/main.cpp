@@ -3,7 +3,7 @@
 
 #include <QtGui/QApplication>
 
-#include "game/glwidget.h"
+#include "gui/glwidget.h"
 
 //------------------------------------------------------------------------------
 int main(int argc, char **argv ){
