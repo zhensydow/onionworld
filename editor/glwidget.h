@@ -15,6 +15,7 @@ class GLWidget : public QGLWidget {
   GLWidget(QWidget *parent = NULL);
   void initializeGL();
   void resizeGL(int w, int h);
+  void paintGL();
 
  protected:
 

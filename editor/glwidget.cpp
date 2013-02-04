@@ -11,11 +11,16 @@ GLWidget::GLWidget(QWidget *parent) : QGLWidget(parent) {
 
 //------------------------------------------------------------------------------
 void GLWidget::initializeGL(){
+    this->render->initialize();
 }
 
 //------------------------------------------------------------------------------
 void GLWidget::resizeGL(int w, int h) {
   this->render->resize( w, h );
+}
+
+void GLWidget::paintGL() {
+    this->render->renderScene();
 }
 
 //------------------------------------------------------------------------------

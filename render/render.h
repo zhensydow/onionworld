@@ -3,12 +3,19 @@
 #define RENDER_RENDER_H
 
 //------------------------------------------------------------------------------
+#define GL_GLEXT_PROTOTYPES 1
+#define GL3_PROTOTYPES 1
+#include <GL/gl.h>
+
+//------------------------------------------------------------------------------
 namespace Render{
   class Render{
   public:
 	static Render * instance();
 
+    void initialize();
 	void resize(const int w, const int h);
+    void renderScene() const;
 
   private:
 	Render();
@@ -16,9 +23,11 @@ namespace Render{
 	void operator=(const Render &);
 
 	static Render * s_singleton;
+
+    GLuint shaderProgram;
   };
 
-  inline Render::Render(){
+  inline Render::Render() : shaderProgram(0) {
 	// empty
   }
 
