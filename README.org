@@ -1,0 +1,10 @@
+* Testing
+** Ubuntu/Debian
+
+apt-get install libboost-all-dev qt4-dev-tools freeglu3-dev
+
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=~/bin
+make
+make install
