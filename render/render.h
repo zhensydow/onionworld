@@ -13,7 +13,7 @@ namespace Render{
   private:
 	Render();
 	Render(const Render &);
-	void operator=(const Render&);
+	void operator=(const Render &);
 
 	static Render * s_singleton;
   };
@@ -23,7 +23,7 @@ namespace Render{
   }
 
   inline Render * Render::instance(){
-	if( 0 != s_singleton ){
+	if( 0 == s_singleton ){
 	  s_singleton = new Render();
 	}
 
