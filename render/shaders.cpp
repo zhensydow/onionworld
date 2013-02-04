@@ -4,9 +4,8 @@
 //------------------------------------------------------------------------------
 #include <GL/glext.h>
 
-#include "fileutils.h"
+#include "common/fileutils.h"
 #include <cstdio>
-
 
 //------------------------------------------------------------------------------
 GLuint createShader(GLenum shaderType, const std::string &filename ){
@@ -14,7 +13,7 @@ GLuint createShader(GLenum shaderType, const std::string &filename ){
   std::string filedata;
   readFileData( filename, filedata );
   const char *strFileData = filedata.c_str();
-  glShaderSource( shader, 1, &strFileData, nullptr );
+  glShaderSource( shader, 1, &strFileData, 0 );
 
   glCompileShader( shader );
 
@@ -25,9 +24,9 @@ GLuint createShader(GLenum shaderType, const std::string &filename ){
     glGetShaderiv( shader, GL_INFO_LOG_LENGTH, &infoLogLength );
 
     GLchar *strInfoLog = new GLchar[infoLogLength + 1];
-    glGetShaderInfoLog(shader, infoLogLength, nullptr, strInfoLog);
+    glGetShaderInfoLog(shader, infoLogLength, 0, strInfoLog);
 
-    const char *strShaderType = nullptr;
+    const char *strShaderType = 0;
     switch( shaderType ){
     case GL_VERTEX_SHADER:
       strShaderType = "vertex";
@@ -65,7 +64,7 @@ GLuint createProgram( const std::vector<GLuint> &shaders ){
     glGetProgramiv( program, GL_INFO_LOG_LENGTH, &infoLogLength );
 
     GLchar *strInfoLog = new GLchar[infoLogLength + 1];
-    glGetProgramInfoLog( program, infoLogLength, nullptr, strInfoLog );
+    glGetProgramInfoLog( program, infoLogLength, 0, strInfoLog );
     fprintf( stderr, "Linker failure: %s\n", strInfoLog );
     delete[] strInfoLog;
   }
