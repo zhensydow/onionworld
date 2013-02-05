@@ -10,3 +10,7 @@ cmake -DCMAKE_INSTALL_PREFIX=~/bin
 make
 make install
 #+END_EXAMPLE
+
+* Acknowledgment
+
+ + Library tinyxml2, Original code by Lee Thomason (www.grinninglizard.com)

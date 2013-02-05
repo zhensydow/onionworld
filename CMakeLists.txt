@@ -33,6 +33,7 @@ set(QT_USE_QTOPENGL TRUE)
 
 add_subdirectory(common)
 add_subdirectory(render)
+add_subdirectory(tinyxml2)
 add_subdirectory(game)
 add_subdirectory(editor)
 
