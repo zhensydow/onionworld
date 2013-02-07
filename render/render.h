@@ -13,14 +13,15 @@ namespace Render{
   public:
 	static Render * instance();
 
+	Render(const Render&) = delete;
+	Render& operator=(const Render&) = delete;
+
     void initialize();
 	void resize(const int w, const int h);
     void renderScene() const;
 
   private:
 	Render();
-	Render(const Render &);
-	void operator=(const Render &);
 
 	static Render * s_singleton;
 

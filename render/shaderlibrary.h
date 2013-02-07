@@ -15,6 +15,9 @@ namespace Render{
     public:
         static ShaderLibrary * instance();
 
+        ShaderLibrary(const ShaderLibrary&) = delete;
+        ShaderLibrary& operator=(const ShaderLibrary&) = delete;
+
         void initialize();
         void setPath( const std::string & path );
 
@@ -22,8 +25,6 @@ namespace Render{
 
     private:
         ShaderLibrary();
-        ShaderLibrary(const ShaderLibrary &);
-        void operator=(const ShaderLibrary &);
 
         static ShaderLibrary * s_singleton;
 
