@@ -26,7 +26,8 @@
     }
 #elif defined(RELEASE)
 #define oassert(EXPR)
+#else
+#error Unknown Build Type
 #endif
-
 
 #endif//COMMON_DEBUG_H
