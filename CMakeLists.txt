@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(OnionWorld)
+set(OnionWorld_VERSION_MAJOR 0)
+set(OnionWorld_VERSION_MINOR 1)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
 #  message("compiler detected as: GNU compiler")

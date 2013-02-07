@@ -3,4 +3,7 @@
 
 const char* const g_datapath = "@DATADIR@";
 
+constexpr unsigned VERSION_MAJOR{@OnionWorld_VERSION_MAJOR@};
+constexpr unsigned VERSION_MINOR{@OnionWorld_VERSION_MINOR@};
+
 #endif//CONFIG_H
