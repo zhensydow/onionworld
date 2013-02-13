@@ -47,6 +47,7 @@ add_subdirectory(render)
 add_subdirectory(tinyxml2)
 add_subdirectory(game)
 add_subdirectory(editor)
+add_subdirectory(test)
 
 # Data files
 file(GLOB DATA_DIRS "data/*")
