@@ -118,7 +118,7 @@ WARN_LOGFILE           =
 # configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT                  = @PROJECT_SOURCE_DIR@/common @PROJECT_SOURCE_DIR@/editor @PROJECT_SOURCE_DIR@/game @PROJECT_SOURCE_DIR@/gui @PROJECT_SOURCE_DIR@/render @PROJECT_SOURCE_DIR@/tinyxml2 @PROJECT_SOURCE_DIR@/data/1.20 @PROJECT_SOURCE_DIR@/data/3.30
+INPUT                  = @PROJECT_SOURCE_DIR@/common @PROJECT_SOURCE_DIR@/editor @PROJECT_SOURCE_DIR@/game @PROJECT_SOURCE_DIR@/gui @PROJECT_SOURCE_DIR@/render @PROJECT_SOURCE_DIR@/tinyxml2 @PROJECT_SOURCE_DIR@/data/1.20 @PROJECT_SOURCE_DIR@/data/3.30 @PROJECT_SOURCE_DIR@/doc/doxydoc
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.cpp *.h *.vert *.frag
 RECURSIVE              = NO

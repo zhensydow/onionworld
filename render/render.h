@@ -8,37 +8,41 @@
 #include <GL/gl.h>
 
 //------------------------------------------------------------------------------
+/** @ingroup Render */
 namespace Render{
-  class Render{
-  public:
-	static Render * instance();
+    /** Singleton Class for Render stuff.
+        @ingroup Render
+     */
+    class Render{
+    public:
+        static Render * instance();
 
-	Render(const Render&) = delete;
-	Render& operator=(const Render&) = delete;
+        Render(const Render&) = delete;
+        Render& operator=(const Render&) = delete;
 
-    void initialize();
-	void resize(const int w, const int h);
-    void renderScene() const;
+        void initialize();
+        void resize(const int w, const int h);
+        void renderScene() const;
 
-  private:
-	Render();
+    private:
+        Render();
 
-	static Render * s_singleton;
+        static Render * s_singleton;
 
-    GLuint shaderProgram;
-  };
+        GLuint shaderProgram;
+    };
 
-  inline Render::Render() : shaderProgram(0) {
-	// empty
-  }
+    inline Render::Render() : shaderProgram(0) {
+        // empty
+    }
 
-  inline Render * Render::instance(){
-	if( 0 == s_singleton ){
-	  s_singleton = new Render();
-	}
+    inline Render * Render::instance(){
+        if( 0 == s_singleton ){
+            s_singleton = new Render();
+        }
 
-	return s_singleton;
-  }
+        return s_singleton;
+    }
 }
 
 //------------------------------------------------------------------------------

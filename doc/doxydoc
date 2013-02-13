@@ -1,0 +1,10 @@
+/** @mainpage Onion World
+@tableofcontents
+
+@section intr_sec Introduction
+<b>Pet Project</b> for learning <b>OpenGL</b> and <b>C++11</b>
+@section inst_sec Install
+ */
+
+/** @defgroup Render Graphics package
+ */
