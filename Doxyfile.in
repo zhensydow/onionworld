@@ -9,11 +9,11 @@
 
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "Onion World"
-PROJECT_NUMBER         =
+PROJECT_NUMBER         = @OnionWorld_VERSION_MAJOR@.@OnionWorld_VERSION_MINOR@
 PROJECT_BRIEF          = "Pet Project to refresh OpenGL and C++"
-PROJECT_LOGO           =
+PROJECT_LOGO           = 
 
-OUTPUT_DIRECTORY       =
+OUTPUT_DIRECTORY       = @PROJECT_BINARY_DIR@
 CREATE_SUBDIRS         = NO
 
 OUTPUT_LANGUAGE        = English
@@ -24,7 +24,7 @@ ABBREVIATE_BRIEF       =
 ALWAYS_DETAILED_SEC    = NO
 INLINE_INHERITED_MEMB  = NO
 FULL_PATH_NAMES        = YES
-STRIP_FROM_PATH        =
+STRIP_FROM_PATH        = @PROJECT_SOURCE_DIR@
 STRIP_FROM_INC_PATH    =
 SHORT_NAMES            = NO
 JAVADOC_AUTOBRIEF      = YES
@@ -118,7 +118,7 @@ WARN_LOGFILE           =
 # configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT                  = common editor game gui render tinyxml2 data/1.20 data/3.30
+INPUT                  = @PROJECT_SOURCE_DIR@/common @PROJECT_SOURCE_DIR@/editor @PROJECT_SOURCE_DIR@/game @PROJECT_SOURCE_DIR@/gui @PROJECT_SOURCE_DIR@/render @PROJECT_SOURCE_DIR@/tinyxml2 @PROJECT_SOURCE_DIR@/data/1.20 @PROJECT_SOURCE_DIR@/data/3.30
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.cpp *.h *.vert *.frag
 RECURSIVE              = NO
@@ -312,7 +312,7 @@ PERL_PATH              = /usr/bin/perl
 #---------------------------------------------------------------------------
 
 CLASS_DIAGRAMS         = YES
-MSCGEN_PATH            =
+MSCGEN_PATH            = @DOXYGEN_DOT_PATH@
 HIDE_UNDOC_RELATIONS   = YES
 HAVE_DOT               = YES
 DOT_NUM_THREADS        = 0
@@ -331,7 +331,7 @@ CALLER_GRAPH           = NO
 GRAPHICAL_HIERARCHY    = YES
 DIRECTORY_GRAPH        = YES
 DOT_IMAGE_FORMAT       = png
-DOT_PATH               =
+DOT_PATH               = @DOXYGEN_DOT_PATH@
 DOTFILE_DIRS           =
 MSCFILE_DIRS           =
 DOT_GRAPH_MAX_NODES    = 50
