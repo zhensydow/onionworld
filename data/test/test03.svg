@@ -1,0 +1,21 @@
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="1024" width="1280" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g onclick="test1" transform="translate(1.9138007,7.650242)">
+  <rect stroke-dasharray="none" height="414.29" width="502.86" stroke="#5f7ee7" stroke-miterlimit="4" y="183.79" x="114.29" stroke-width="2" fill="#F00"/>
+ </g>
+ <g transform="matrix(0.97869844,0.25044452,-0.20530312,1.1938915,384.46074,92.46711)">
+  <path d="m108.29,203.8,508.86,0,0,394.28-508.86,0z" stroke="#5f7ee7" stroke-miterlimit="4" stroke-width="2" fill="#F00"/>
+ </g>
+ <g onclick="test2" transform="translate(308.22215,-53.171172)">
+  <path d="m436.4,165.78c61.508,43.76,127.12,85.213,200.74,104.86,30.644,7.5797,66.617,9.4917,92.464-11.808,26.087-15.921,54.252,5.8448,70.893,25.416,47.684,57.412,75.84,127.83,103.61,196.31,12.689,32.816,24.523,65.972,35.159,99.512h-502.86v-414.29z" stroke="#5f7ee7" stroke-miterlimit="4" stroke-width="2" fill="#F00"/>
+ </g>
+</svg>
