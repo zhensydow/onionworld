@@ -8,3 +8,6 @@
 
 /** @defgroup Render Graphics package
  */
+
+/** @defgroup Common Utils, File functions and commons stuff
+ */
