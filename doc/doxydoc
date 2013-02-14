@@ -11,3 +11,6 @@
 
 /** @defgroup Common Utils, File functions and commons stuff
  */
+
+/** @defgroup Math mathematical utilities
+ */
