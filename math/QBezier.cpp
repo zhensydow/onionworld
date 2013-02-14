@@ -5,13 +5,9 @@
 namespace Math{
     //--------------------------------------------------------------------------
     Vector2D QBezier::eval( const double & t ) const{
-        double s = 1 - t;
-
-        //b(t) = s*[s*p0 + t*p1] + t*[s*p1 + t*p2]
-
-        auto a = this->p0 * s + this->p1 * t;
-        auto b = this->p1 * s + this->p2 * t;
-        return a*s + b*t;
+        const double s = 1 - t;
+        //b(t) = s^2*p0 + 2*s*t*p1 + t^2*p2
+        return (p0*(s*s)) + (p1*(2*s*t)) + (p2*(t*t));
     }
 }
 
