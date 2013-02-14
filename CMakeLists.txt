@@ -43,6 +43,7 @@ find_package(Qt4 REQUIRED)
 set(QT_USE_QTOPENGL TRUE)
 
 add_subdirectory(common)
+add_subdirectory(math)
 add_subdirectory(render)
 add_subdirectory(tinyxml2)
 add_subdirectory(game)
