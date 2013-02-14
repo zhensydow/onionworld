@@ -12,6 +12,16 @@ namespace Math{
         auto d = p3*(t*t*t);
         return a+b+c+d;
     }
+
+    //--------------------------------------------------------------------------
+    QBezier CBezier::simplify1() const{
+        constexpr double t2 = 0.5 * 0.5;
+        auto vt = eval( 0.5 );
+        auto px = (vt.x - t2*p0.x - t2*p3.x) / (2.0*t2);
+        auto py = (vt.y - t2*p0.y - t2*p3.y) / (2.0*t2);
+        return QBezier{p0,{px,py},p3};
+    }
+
 }
 
 //------------------------------------------------------------------------------

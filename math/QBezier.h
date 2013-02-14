@@ -15,7 +15,6 @@ namespace Math{
         QBezier( const Vector2D & a, const Vector2D & b, const Vector2D & c );
         Vector2D eval( const double & t ) const;
 
-    private:
         Vector2D p0;
         Vector2D p1;
         Vector2D p2;

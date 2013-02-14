@@ -4,6 +4,7 @@
 
 //------------------------------------------------------------------------------
 #include "Vector2D.h"
+#include "QBezier.h"
 
 //------------------------------------------------------------------------------
 namespace Math{
@@ -15,6 +16,8 @@ namespace Math{
         CBezier( const Vector2D & a, const Vector2D & b, 
                  const Vector2D & c, const Vector2D & d );
         Vector2D eval( const double & t ) const;
+
+        QBezier simplify1() const;
 
     private:
         Vector2D p0;
