@@ -7,8 +7,9 @@
 #define GL3_PROTOTYPES 1
 #include <GL/gl.h>
 
+#include "camera.h"
+
 //------------------------------------------------------------------------------
-/** @ingroup Render */
 namespace Render{
     /** Singleton Class for Render stuff.
         @ingroup Render
@@ -30,6 +31,7 @@ namespace Render{
         static Render * s_singleton;
 
         GLuint shaderProgram;
+        Camera m_camera;
     };
 
     inline Render::Render() : shaderProgram(0) {

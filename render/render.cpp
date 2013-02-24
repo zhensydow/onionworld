@@ -71,9 +71,13 @@ namespace Render{
 
         posloc = glGetAttribLocation( this->shaderProgram, "position");
         colloc = glGetAttribLocation( this->shaderProgram, "color");
+
+        m_camera.addShader( this->shaderProgram );
+        m_camera.init();
     }
 
     void Render::resize(const int w, const int h){
+        m_camera.resize( w, h );
         glViewport( 0, 0, (GLsizei)w, (GLsizei)h );
     }
 
